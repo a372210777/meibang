@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>旺铺</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <style type="text/css">
+
+
+@-webkit-keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+
+        .container .header{background:#f59821;height:48px;padding:10px;position:absolute;top:0;width:100%;}
+        .container .header .back{float:left;margin-top:-4px;} 
+        .container .header .back .icon-smore:before{content: '\e803';font-size: 26px;color: #DDD;transform: rotate(180deg);-webkit-transform:rotate(180deg);}
+        .container .header .title{ float:left;display: inline-block;padding:5px 0 0 20px;color:#FFF;}
+
+body {
+    overflow-x:hidden;
+    overflow-y: auto;}
+.navbar {
+    background: #383838;
+    position: fixed;
+    height: 100%;
+    width: 40%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    right: auto;
+    left: auto;
+    visibility: hidden;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    display: block;
+    -webkit-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: block;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+.navbar.open {
+    visibility: visible;
+    -webkit-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .footer{
+    padding-top:0;
+    position: absolute;
+    bottom: 0;
+    height: 48px;
+    width:100%;
+    z-index: 1;
+    background: -webkit-linear-gradient(bottom,#890c09,#b2140d);
+    background: -ms-linear-gradient(bottom,#890c09,#b2140d);
+    background: -moz-linear-gradient(bottom,#890c09,#b2140d);
+    background: -o-linear-gradient(bottom,#890c09,#b2140d);
+    background: linear-gradient(bottom,#890c09,#b2140d);}
+
+    .main .module-wrap{background:#CCC;height:100%;overflow-y:scroll;padding:48px 0; }
+
+    .main .header.open,.main .footer.open,.main .module-wrap.open{
+        -webkit-transform: translateX(150px);
+        -ms-transform: translateX(150px);
+        -moz-transform: translateX(150px);
+        -o-transform: translateX(150px);
+        transform:translateX(150px);
+         -webkit-transition: all 500ms;
+        -ms-transition: all 500ms;
+        -moz-transition: all 500ms;
+        -o-transition: all 500ms;
+        transition: all 500ms;
+    }
+    .main{position: absolute;top:0;left:0;right: 0;bottom:0;}
+    .main .header,.main .footer,.main .module-wrap{
+          -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+     -webkit-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    }   
+    
+    li{    box-sizing: border-box;
+    width: 100%;
+    line-height: 48px;
+    padding: 0 16px;
+    border-top: 1px dotted #292929;
+    color: #ccc;
+    text-decoration: none;}
+
+    .navbar ul.open{
+        -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+       animation-delay:0.2s;
+    -webkit-animation-delay:0.2s
+        -webkit-animation-name: fadeInLeft;
+        animation-name: fadeInLeft;
+    }
+    .navbar ul{
+        -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+       animation-delay:0s;
+      -webkit-animation-delay:0s
+        -webkit-animation-name: fadeOutLeft;
+        animation-name: fadeOutLeft;
+    }
+
+
+
+
+    </style>
+</head>
+<body>   
+
+    <div  class="container">
+
+        <div class="navbar">
+            <ul class="animated fadeInLeft">
+                    <li>
+                        <span>首页</span>
+                        <i class="pull-right icon-home"></i>
+                    </li>
+                    <li>
+                        <span>商品展示</span>
+                        <i class="pull-right icon-product"></i>
+                    </li>
+                    <li>
+                        <span>动态新闻</span>
+                        <i class="pull-right icon-news"></i>
+                    </li>
+                    <li>
+                        <span>登录</span>
+                        <i class="pull-right icon-login"></i>
+                    </li>
+                </ul>
+        </div>
+        <div class="main">
+            
+            <div class="module-wrap">
+                <div class="animated fadeInLeft" style="padding:10px;border:1px solid #000">动画测试</div>
+                hehe<br>body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>body<br>
+                body<br>body<br>body<br>body<br>哈哈<br>
+            </div>
+            <div class="header">
+                <span class="back menu">
+                    <i class="icon-smore"></i></a>
+                </span> 
+                <span class="title">门店位置</span>                            
+            </div>
+            <div class="footer">
+                hehehehe
+            </div>
+        </div>
+        
+        
+
+
+    </div>   
+</body>
+<script src="../../pluging/jquery/dist/jquery.js"></script>
+<script>
+    $(".menu").click(function(){
+        $(".navbar").toggleClass("open");
+        $(".header,.footer,.module-wrap").toggleClass("open")
+        $(".navbar ul").toggleClass("open")
+
+        // if($(".navbar ul").hasClass("open")){
+        //         console.log("open")
+        //         $(".navbar ul").removeClass("fadeOutLeft")
+        //         $(".navbar ul").addClass("animated fadeInLeft")
+        // }else{
+        //     console.log("close")
+        //     $(".navbar ul").removeClass("fadeInLeft")
+        //     $(".navbar ul").addClass("animated fadeOutLeft")
+        // }
+    })
+</script>
+
+
+</html>

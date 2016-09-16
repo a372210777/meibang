@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>美帮</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" href="pluging/swiper/dist/css/swiper.min.css">
+    <style type="text/css">
+
+@-webkit-keyframes slideOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+
+.slideOutLeft {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+     .container{}
+
+    .container .main-menu {position: absolute; z-index: 3; top: 0; bottom: 0; left: 0; right: 0; opacity: 0.7;background: -webkit-linear-gradient(left, #000, #FFF);background: linear-gradient(left, #000, #FFF);    color: #FFF;-webkit-transition: all 500ms; -webkit-transform: translate(-100%,0);transform: translate(-100%,0);}
+    .container .main-menu.open{ -webkit-transform: translate(0,0);transform: translate(0,0);}
+     .container .main-menu li{width: 2.734375rem; height: 0.625rem; text-align: center; margin: auto 0; -webkit-display:flex;   display: flex; align-items: center; justify-content: flex-start; padding-left: 0.46875rem;    font-size: 26px;}
+     .container .main-menu li div:nth-child(1){margin:5px 17px 0 0;}
+     .container .main-menu li:nth-child(1) i:before{    width: 32px; height: 32px; display: inline-block; text-align: center; line-height: 27px; box-sizing: border-box; border: 2px solid #FFF; border-radius: 16px;}
+     .container .main-menu li.activity{background:-webkit-linear-gradient(left,rgba(145,139,142,0.45), rgba(145,139,142,0));background: linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));}
+
+     .container .header{background: #FFF;height:0.703125rem;line-height: 0.703125rem;padding: 0 0.1953125rem;text-align: center;position: relative;font-size: 20px;}
+     .container .header span{    position: absolute; left: 0.1953125rem; top: 0; bottom: 0; display: inline-block; height: 32px;line-height: normal; border-radius: 16px; width: 32px; color: #dcdcdc; box-shadow: 0px 3px 15px #d9dada;margin: auto 0;}
+     .container .header .icon-arrow-left:before{font-size:32px;}
+
+     .container .main{margin-bottom: 110px;}
+     .container .main .tab-tite{height:0.46875rem;background: #f4f8fb; color:#8d8d8f; padding:0.1015625rem 0.1875rem;box-sizing:border-box; white-space: nowrap; overflow-x: auto; overflow-y: hidden;position: relative;}
+     .container .main .tab-tite::-webkit-scrollbar {display: none; }
+     .container .main .tab-tite li{display: inline-block;margin-left: 0.234375rem;width:0.78125rem;height:0.2734375rem; line-height: 0.2734375rem;text-align: center;border-radius: 5px}
+     .container .main .tab-tite li.activity{background:#FFF;color:#f34780;}
+     .container .main .tab-tite li:nth-child(1){margin: 0}
+     .container .footer{height:0.859375rem;background: #FFF;position: absolute;bottom: 0;width:100%; padding: 0 1.5625rem;box-sizing: border-box;
+        display: -weblit-flex;display: flex;justify-content: space-between;-webkit-align-items:center ;align-items: center ;}
+     .container .footer .item{width:75px;height:75px;    text-align: center;color:#50484b;}
+     .container .footer .item div{}
+     .container .footer .item.activity{color:#f34780;}
+     .container .footer .item div img{height:45px;width:40px;}
+
+
+     .container .main .swiper-container .swiper-slide{height:3.8125rem;padding:0.15625rem 0.1875rem;background: -webkit-linear-gradient(left, #73578a, #c4b9b0);background: linear-gradient(left, #73578a, #c4b9b0);}
+     .container .main .swiper-container .swiper-slide .product-all-wrap{white-space: nowrap; overflow-x: auto; overflow-y: hidden;}
+     .container .main .swiper-container .swiper-slide .product-all-wrap::-webkit-scrollbar {display: none; }
+     .container .main .swiper-container .swiper-slide .product-all-wrap {/*display:-weblit-flex;display: flex*/;}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li{height:3.515625rem;width:1.703125rem; display: inline-block;border-radius: 8px;    vertical-align: top;}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(1) div:nth-child(1){height:2.8125rem;background:url("img/girl.png");    background-repeat: no-repeat; background-size: cover;border-radius: 8px 8px 0 0;}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(1) div:nth-child(2){height:0.703125rem; text-align: CENTER; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;background: #FFF;    border-radius: 0 0 8px 8px;    font-weight: bold;color: #50484b;}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(1) div:nth-child(1){position: relative;align-items: flex-end;display:-weblit-flex;display: flex}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(1) div:nth-child(1) span{display: inline-block; background: #f34780;  color: #FFF; box-sizing: border-box;    padding: 0.078125rem;    border-radius: 20px;bottom: -0.15625rem;margin: 0 auto;margin-bottom: -0.15625rem}
+     .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(1) div:nth-child(2) span{line-height: 0.703125rem;}
+
+
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2){margin-left: 0.2734375rem}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.common{height: 1.640625rem;}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.common div:nth-child(1){position: relative;align-items: flex-end;display:-weblit-flex;display: flex;height: 0.9375rem; background: url("img/girl.png"); background-repeat: no-repeat; background-size: cover; border-radius: 8px 8px 0 0;}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.common div:nth-child(1) span{display: inline-block; background: #f34780;  color: #FFF; box-sizing: border-box;    padding: 0.078125rem;    border-radius: 20px;bottom: -0.15625rem;margin: 0 auto;margin-bottom: -0.15625rem}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.common div:nth-child(2){height: 0.703125rem; text-align: center; text-align: CENTER; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;background: #FFF;    border-radius: 0 0 8px 8px;    font-weight: bold;color: #50484b;}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.common div:nth-child(2) span{line-height: 0.703125rem;}
+    .container .main .swiper-container .swiper-slide .product-all-wrap li:nth-child(n+2) div.top{margin-bottom: 0.2265625rem;}
+     </style>
+    
+</head>
+<body>
+    <ul class="sidenav">
+       
+    </ul>
+    <div class="container">
+        <ul class="main-menu">
+            <li>
+                <div class="back"><i class="icon-arrow-left"></i></div>
+            </li>
+            <li>
+                <div><img src="img/b_quality.png"></div>
+                <div>精品</div>
+            </li>
+            <li>
+                <div><img src="img/b_hot.png"></div>
+                热门
+            </li>
+            <li class="activity">
+                <div><img src="img/b_activity.png"></div>
+                活动
+            </li>
+            <li>
+                <div><img src="img/b_product.png"></div>
+                产品
+            </li>
+         
+            <li>
+                <div><img src="img/b_environment.png"></div>
+                环境
+            </li>
+            <li>
+                <div><img src="img/b_announce.png"></div>
+                公告
+                </li>
+            <li>
+                <div><img src="img/b_person.png"></div>
+                私人定制
+            </li>
+             <li>
+                <div><img src="img/b_work.png"></div>
+                工作
+            </li>
+
+        </ul>
+        <header class="header">
+            <span class="menu-btn">m</span>
+            产品
+        </header>
+        <div class="main">
+            <ul class="tab-tite">
+                <li class="title activity">全部</li>
+                <li class="title">减肥</li>
+                <li class="title">祛斑</li>
+                <li class="title">去皱</li>
+                <li class="title">丰胸</li>
+                <li class="title">美甲</li>
+                <li class="title">美睫</li>
+                <li class="title">美睫</li>
+                <li class="title ">美睫</li>
+            </ul>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide stop-swiping">
+                        <ul class="product-all-wrap">
+                            <a href="index.html"><li>
+                                <div>
+                                     <span>¥1000</span>
+                                </div>
+                                <div>
+                                   
+                                    <span>面部肽水润护理</span>
+                                </div>
+                            </li>
+                            </a>
+                            <li>
+                                <div class="common top" >
+                                    <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                                <div class="common">
+                                     <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="common top" >
+                                    <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                                <div class="common">
+                                     <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="common top" >
+                                    <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                                <div class="common">
+                                     <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="common top" >
+                                    <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                                <div class="common">
+                                     <div>
+                                        <span>¥1000</span>
+                                    </div>
+                                    <div>
+                                   
+                                        <span>面部肽水润护理</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide stop-swiping">Slide 2</div>
+                     <div class="swiper-slide stop-swiping">Slide 3</div>
+                      <div class="swiper-slide stop-swiping">Slide 4</div>
+                       <div class="swiper-slide stop-swiping">Slide 5</div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <footer class="footer">
+           <div class="item" data-switch="img/cheap1.png">
+                <div><img src="img/cheap.png"></div>
+               优惠促销
+           </div>
+            <div class="item activity" data-switch="img/product.png">
+             <div><img src="img/product1.png"></div>
+               产品
+           </div>
+            <div class="item" data-switch="img/service1.png">
+               <div><img src="img/service.png"></div>
+               服务项目
+           </div>
+            <div class="item" data-switch="img/custom1.png">
+               <div><img src="img/custom.png"></div>
+               私人定制
+           </div>
+            <div class="item" data-switch="img/other1.png">
+               <div><img src="img/other.png"></div>
+               其他
+           </div>
+        </footer> 
+    </div>
+    
+</body>
+
+<script src="pluging/jquery/dist/jquery.js"></script>
+<script src="pluging/layer/layer.js"></script>
+<script src="pluging/swiper/dist/js/swiper.jquery.js"></script>
+<script src="pluging/jquery_lazyload-master/jquery.lazyload.min.js"></script>
+<script src="pluging/simpleStorage/simpleStorage.min.js"></script>
+<script src="pluging/aes/aes.js"></script>
+<script src="js/basic/basic.js"></script>
+<script src="js/product.js"></script>
+
+
+
+</html>

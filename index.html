@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>美帮</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" href="pluging/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/buttons.css" /> -->
+
+    <style type="text/css">
+
+    body{overflow-y:hidden;}
+
+
+     .container{-webkit-transition: all 500ms; -webkit-transform: translate(0,0);transform:translate(0,0);position: relative;background: #FFF;    box-shadow: 6px 0 5px #d9dada;}
+     .container.open{-webkit-transition: all 500ms; -webkit-transform: translate(0,0);transform: translate(-50%,0);}
+     .container .header{background: #FFF;height:0.703125rem;line-height: 0.703125rem;padding: 0 0.15625rem;}
+     .container .header a:nth-child(1){height:0.703125rem;}
+     .container .header .icon-arrow-left:before{font-size:32px;}
+     .container .header .buy-btn{ display: inline-block;border:1px solid #000; border-radius: 15px;    width: 0.625rem; height: 0.234375rem; text-align: center; line-height: 0.234375rem;} 
+
+
+    .container .aside{visibility: hidden}
+    .container.open .aside{visibility: visible;}
+
+    .sidenav{background:#f5f8fa; width: 50%; position: absolute; right: 0; top: 0; bottom: 0;box-sizing:border-box;}
+    .sidenav li:nth-child(1){background: #FFF;height:0.703125rem;    line-height: 0.703125rem;position: relative;}
+    .sidenav li:nth-child(1) span{ font-size: 24px;font-weight: BOLD;}
+    .sidenav li:nth-child(1) span.price{color:#f04172;margin-left: 0.078125rem}
+    .sidenav li:nth-child(1) input{background: none; border: none; position: absolute; right: 0; top: 0; bottom: 0; color: #f04172; font-size: 20px;} 
+
+    .sidenav li.item{height: 0.3125rem; border: 1px solid #f04172; border-radius: 5px; line-height: 0.3125rem; position: relative; color: #f04172;margin:0.234375rem 0.3515625rem;font-size: 18px;}
+    .sidenav li.item:nth-child(2){margin-top: 0.3125rem}
+    .sidenav li.item span:nth-child(1){position: absolute;left: 0.078125rem;}
+
+    .container .slide-1 .main{padding:0.15625rem 0.1875rem 0;}
+    .container .slide-1 .main .detail-wrap .logo-wrap{/*width:53.39219712525667%;*/width:4.359375rem;}
+    .container .slide-1 .main .detail-wrap .detail{/*width:46.140%;*/width:3.265625rem}
+    .container .slide-1 .main .detail-wrap .detail .title{font-size: 23px; font-weight: bold;    padding: 0 0 0.21875rem;} 
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div{margin-bottom: 0.15625rem;font-size: 16px}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div span{display: inline-block;}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div:nth-child(1){color:#9197A3;}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div:nth-child(1) span:nth-child(1){margin-right: 0.234375rem;}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div:nth-child(1) span:nth-child(2){text-decoration: line-through;}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div:nth-child(2) span:nth-child(1){margin-right: 0.109375rem;}
+    .container .slide-1 .main .detail-wrap .detail .price-wrap div:nth-child(3) span:nth-child(1){margin-right: 0.234375rem;}
+   /* .container .main .detail-wrap .detail .complication{display: -webkit-flex; -webkit-flex-direction: row; display: flex; flex-direction: row;}
+    .container .main .detail-wrap .detail .complication span{width:33.3333%;-webkit-flex-grow:1;flex-grow:1;}*/
+    .container .slide-1 .main .detail-wrap .detail .top{ padding: 0 0.2734375rem 0 0.3515625rem;; }
+    .container .slide-1 .main .detail-wrap .detail .complication span:nth-child(1){color:#f04172;background: none;padding:0;}
+    .container .slide-1 .main .detail-wrap .detail .complication{    overflow: auto;padding:0 0 0 0.3515625rem;}
+    .container .slide-1 .main .detail-wrap .detail .complication span{    display: inline-block;padding: 0 0.125rem; float: left; height: 0.234375rem; background: #f5f8fa; border-radius: 0.25rem; line-height: 0.234375rem; text-align: center; margin-bottom: 0.15625rem; color: #9197a3; box-sizing: border-box; margin-right: 0.15625rem;}
+
+    .container .slide-1 .main .tip{height: 0.7421875rem;font-size: 16px;line-height: 0.7421875rem;text-align: center;}
+
+    .container .slide-1  footer{padding:0.2578125rem 0.2109375rem 0.0546875rem; background: #f3f3f3;color:#9197a3;display: -weblit-flex;display: flex;justify-content: center;
+    -webkit-align-items: flex-start;align-items: flex-start;}
+
+    .container .slide-1 footer .item{-webkit-flex-grow:1; flex-grow: 1; width: 33.333333333%;}
+   /* .container footer .item div{margin-bottom: 16px;}
+    .container footer .item div span:nth-child(1){color:#9197a3;font-weight: bold;margin-right: 25px; float: left; display: inline-block;}
+    .container footer .item div span:nth-child(2){color:#989da8;overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 50%; display: inline-block; float: left;}
+    .container footer .item div{overflow: auto;}
+
+    .mr55{margin-right: 55px !important;}*/
+    .container .slide-1 footer .item div{margin-bottom: 0.125rem; -weblit-flex;display: flex;justify-content: center;
+    -webkit-align-items: flex-start;align-items: flex-start;}
+    .container .slide-1 footer .item div span{}
+    .container .slide-1 footer .item div span:nth-child(1){color:#9197a3;font-weight: bold;flex-grow:0;margin-right: 0.1953125rem;white-space: nowrap;}
+    .container .slide-1 footer .item div span:nth-child(2){color:#989da8;flex-grow:1;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+
+
+    .container .slide-2 .title-wrap{height:96px; font-size:23px;font-weight: bold;margin-bottom: 0.3203125rem;padding:18px 0;}
+    .container .slide-2 .title-wrap .title{    width: 3.125rem; padding: 0 0.46875rem 0 0; float: right;}
+    .container .slide-2 .main{    height: 595px; background: #f04172; transform: skew(0deg,6deg); margin-top: 154px; padding: 0 0.1875rem 0; position: relative; }
+    .container .slide-2 .main .use-method{ transform: skew(0deg,-6deg); width: 856px; height: 228px; color: #50484b; padding: 34px 20px 0; position: absolute; top: -126px;border-radius: 7px;font-size: 20px;}
+    .container .slide-2 .main .use-method .row-wrap{-webkit-display:flex;display: flex;    justify-content: space-between;}
+    .container .slide-2 .main .use-method .row-wrap .item{    height: 315px;width: 260px;}
+    .container .slide-2 .main .use-method .row-wrap .item .img-wrap{height:190px;}
+    .container .slide-2 .main .use-method .row-wrap .item .img-wrap img{height:190px;}
+    .container .slide-2 .main .use-method .row-wrap .item .text-wrap{height:125px;background-color: #313131;color: #FFF;padding:15px 10px;font-size: 16px;}
+
+    .container .slide-6 .top{background-color: #f04172}
+    .container .slide-6 .title-wrap{color:#FFF;margin-bottom: 0}
+    .container .slide-6 .title-wrap .title{}
+    .container .slide-6 .chart-wrap{background-color: #f04172;height:108px;}
+    .container .slide-6 .tab-title{height:0.46875rem;background: #f4f8fb; color:#8d8d8f; padding:0.1015625rem 0.1875rem;box-sizing:border-box; white-space: nowrap; overflow-x: auto; overflow-y: hidden;/*position: relative;*/}
+    
+    .container .slide-6 .tab-title ul li{display: inline-block;margin-left: 0.234375rem;width:0.78125rem;height:0.2734375rem; line-height: 0.2734375rem;text-align: center;border-radius: 5px}
+    .container .slide-6 .tab-title .coment-class{position: absolute;left: 0;}
+    .container .slide-6 .tab-title .coment-class li{}
+    .container .slide-6 .tab-title .coment-class li.activity{background:#FFF;color:#f34780;}
+    .container .slide-6 .tab-title .coment-classli:nth-child(1){margin: 0}
+    .container .slide-6 .tab-title .select-class{position: absolute;right: 0.1875rem;;}
+    .container .slide-6 .tab-title .select-class li{}
+    .container .slide-6 .swiper-comment{overflow-x: hidden;}
+    .container .slide-6 .swiper-comment .list-wrap{    height: 413px; overflow-y: scroll; box-sizing: border-box; }
+    .container .slide-6 .swiper-comment .list-wrap::-webkit-scrollbar {display: none; }
+    .container .slide-6 .swiper-comment .list{height: 240px; padding: 28px 24px; border-bottom: 2px solid #f5f5f5; box-sizing: border-box;color: #8d8d8f;}
+    .container .slide-6 .swiper-comment .list .author{float: left;height: 180px;    width: 217px;}
+    .container .slide-6 .swiper-comment .list .content-wrap{float: left; width: 759px}
+    .container .slide-6 .swiper-comment .list .content{height: 100px;color:#50484b;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;    line-height: 25px;}
+    .container .slide-6 .swiper-comment .list .img-wrap{height: 90px;padding: 10px 0;}
+    .container .slide-6 .swiper-comment .list .img-wrap span{    display: inline-block; width: 58px; height: 58px; border: 1px solid #ccc; padding: 3px; box-sizing: BORDER-BOX;    margin-right: 8px;}
+    .container .slide-6 .swiper-comment .list .img-wrap span img{width:50px; height:50px;}
+
+
+    .container .title-wrap{height:96px; font-size:23px;font-weight: bold;margin-bottom: 0.3203125rem;padding:18px 0;}
+    .container .title-wrap .title{    width: 3.125rem; padding: 0 0.46875rem 0 0; float: right;}
+    .container .slide-3 .main{    height: 595px; background: #f04172; transform: skew(0deg,6deg); margin-top: 154px; padding: 0 0.1875rem 0; position: relative; }
+    .container .slide-3 .main .user-desc{background: #f5f8fa;  transform: skew(0deg,-6deg); width: 856px; height: 228px; color: #50484b; padding: 34px 20px 0; position: absolute; top: -126px;border-radius: 7px;font-size: 20px;    overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;}
+    .container .slide-3 .main .user-desc.decorate{height:262px;}
+
+
+    .container .title-wrap{height:96px; font-size:23px;font-weight: bold;margin-bottom: 0.3203125rem;padding:18px 0;}
+    .container .title-wrap .title{    width: 3.125rem; padding: 0 0.46875rem 0 0; float: right;}
+    .container .slide-4 .main{    height: 595px; background: #f04172; transform: skew(0deg,6deg); margin-top: 154px; padding: 0 0.1875rem 0; position: relative; }
+    .container .slide-4 .main .user-desc{background: #f5f8fa;  transform: skew(0deg,-6deg); width: 856px; height: 228px; color: #50484b; padding: 34px 20px 0; position: absolute; top: -126px;border-radius: 7px;font-size: 20px;    overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;}
+    .container .slide-4 .main .user-desc.decorate{height:262px;}
+
+    .container .title-wrap{height:96px; font-size:23px;font-weight: bold;margin-bottom: 0.3203125rem;padding:18px 0;}
+    .container .title-wrap .title{    width: 3.125rem; padding: 0 0.46875rem 0 0; float: right;}
+    .container .slide-5 .main{    height: 595px; background: #f04172; transform: skew(0deg,6deg); margin-top: 154px; padding: 0 0.1875rem 0; position: relative; }
+    .container .slide-5 .main .user-desc{background: #f5f8fa;  transform: skew(0deg,-6deg); width: 856px; height: 228px; color: #50484b; padding: 34px 20px 0; position: absolute; top: -126px;border-radius: 7px;font-size: 20px;    overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;}
+    .container .slide-5 .main .user-desc.decorate{height:262px;}
+
+
+    .container .menu{position: fixed; right: 0; bottom: 0; width: 0.9375rem; height: 300px;z-index: 10;}
+    .container .menu li{height:0.390625rem;text-align: center;line-height: 0.390625rem;color:#FFF;background: #666;color:#dfdfdf;-webkit-transition: all 500ms}
+    .container .menu li.activity{background: #333;color:#FFF;transform: scale(1.3);}
+
+    .mr55{margin-right: 0.4296875rem !important;}
+    .bc1{background-color: #f04172}
+
+    span.button-dropdown span.button{display: inline-block; height: 34px; background: #f5f8fa;     padding: 1px 10px; box-sizing: BORDER-BOX; line-height: 30px; border-radius: 5px; border: 1px solid #50484b;color: #50484b;}
+
+    span.button-dropdown span.button i:before{font-size:16px;margin-left: 5px;transition:all 0.5s;transform: rotate(0deg);width: 10px;}
+    span.button-dropdown span.button.is-active i:before{transform: rotate(-180deg);transform-origin: 50% 45%;}
+    span.button-dropdown ul.button-dropdown-list{position: absolute;z-index: 20;visibility: hidden}
+    span.button-dropdown ul.button-dropdown-list.hide{visibility: hidden;}
+    span.button-dropdown ul.button-dropdown-list.show{visibility: visible;}
+    span.button-dropdown ul.button-dropdown-list li.item{    display: block; margin: 0; background: #F4F8FB; padding: 1px 10px; box-sizing: border-box; font-size: 16px; border-radius: 0;color:#50484b;}
+    span.button-dropdown ul.button-dropdown-list li.item:active{background: #f6f6f6}
+    span.button-dropdown span.button:active{
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    background-color: #eeeeee;
+    border-color: #cfcfcf;
+    color: #d4d4d4;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+    </style>
+</head>
+<body>
+    <ul class="sidenav" style="text-align:center">
+        <li>
+            <span>合计</span>
+            <span class="price">100</span>
+            <span>元</span>
+            <input type="submit" value="提交"/>
+        </li>
+        <li class="item"><span>客户</span>请选择</li>
+        <li class="item"><span>技师</span>请选择</li>   
+        <li class="item"><span>顾问</span>请选择</li>   
+        <li class="item"><span>付款</span>请选择</li>   
+    </ul>
+    <div class="container">
+        <header class="header">
+            <a href="product.html" class="pull-left"><i class="icon-arrow-left"></i></a>
+            <a href="#" id="buy" class="pull-right"><span  class="buy-btn">购买</span></a>
+        </header>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide-1">
+                    <div class="main">
+                        <div class="detail-wrap">
+                            <div class="logo-wrap pull-left">
+                                <img src="img/default.png">
+                            </div>
+                            <div class="detail pull-left">
+                                <div class="top">
+                                    <div class="title">水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</div>
+                                    <div class="price-wrap">
+                                        <div><span>原价</span><span>388元</span></div>
+                                        <div><span>促销价</span><span>188</span></div>
+                                        <div><span>已售</span><span>108</span></div>
+                                    </div>
+                                </div>
+                                <div class="complication">
+                                        <span>适应症</span><span>色素型痘坑</span><span>色素型痘坑</span><span>色素型痘坑</span>
+                                         <span>黑色痘印</span><span>黑色痘印</span><span>痘印</span>
+                                          
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="tip">美帮承诺，随时付款，先行赔付，分享返现。</div>
+                    </div>
+                    <footer class="footer">
+                        <div class="item">
+                            <div><span>产品名称</span><span>WETCODE/水密码</span></div>
+                            <div><span>适合肤质</span><span>任何肤质</span></div>
+                            <div><span class="mr55">功效</span><span>深层清洁  清洁毛孔  清洁</span></div>
+                            <div><span>特殊用途化妆品批准文号</span><span>无</span></div>
+                            
+                        </div>
+                        <div class="item">
+                            <div><span>规格类型</span><span>正常规格</span></div>
+                            <div><span>起泡程度</span><span>泡沫</span></div>
+                            <div><span class="mr55">品牌</span><span>WETCODE/水密码</span></div>
+                            <div><span class="mr55">产地</span><span>中国</span></div>
+                        </div>
+                        <div class="item">
+                            <div><span>化妆品净含量</span><span>100g</span></div>
+                            <div><span>洁面分类</span><span>洁面乳</span></div>
+                            <div><span>洁面单品</span><span>冰川矿泉清新丝滑洁面乳</span></div>
+                            <div><span class="mr55">品牌</span><span>WETCODE/水密码</span></div>
+                        </div>
+
+                    </footer>
+
+                </div>
+                <div class="swiper-slide slide-2">
+
+                    <div class="title-wrap ">
+                        <div class="title"><span> 水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</span></div>
+                     </div>
+                     <div class="main">
+                      
+                         <div class="use-method">
+                             <div class="row-wrap">
+                                <div class="item">
+                                    <div class="img-wrap"><img src="img/method.png"></div>
+                                    <div class="text-wrap">1  洗净双手，用温水冲洗脸部，先把皮肤表面污垢冲洗干净，同时使面部毛细孔全部张开。</div>
+                                </div>
+                                 <div class="item">
+                                    <div class="img-wrap"><img src="img/method.png"></div>
+                                    <div class="text-wrap">2  洗净双手，用温水冲洗脸部，先把皮肤表面污垢冲洗干净，同时使面部毛细孔全部张开。</div>
+                                </div>
+                                 <div class="item">
+                                    <div class="img-wrap"><img src="img/method.png"></div>
+                                    <div class="text-wrap">3  洗净双手，用温水冲洗脸部，先把皮肤表面污垢冲洗干净，同时使面部毛细孔全部张开。</div>
+                                </div>
+                             </div>
+                         </div>
+                        
+                     </div>
+
+                </div>
+                <div class="swiper-slide slide-3">
+                    <div class="title-wrap ">
+                        <div class="title"><span> 水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</span></div>
+                     </div>
+                     <div class="main">
+                        <div class="user-desc decorate">
+                             
+                         </div>
+                         <div class="user-desc">氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片</div>
+                        
+                     </div>
+
+                </div>
+                <div class="swiper-slide slide-4">
+
+
+                     <div class="title-wrap ">
+                        <div class="title"><span> 水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</span></div>
+                     </div>
+                     <div class="main">
+                        <div class="user-desc decorate">
+                             
+                         </div>
+                         <div class="user-desc">氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片</div>
+                        
+                     </div>
+                </div>
+                <div class="swiper-slide slide-5">
+                    <div class="title-wrap ">
+                        <div class="title"><span> 水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</span></div>
+                     </div>
+                     <div class="main">
+                        <div class="user-desc decorate">
+                             
+                         </div>
+                         <div class="user-desc">氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶 
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶
+                         剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片氯化苯是目前工业生产中重要的有机中间体，也是较常使用的有机溶剂，因此它的生产指标和产品质量一般都要求较高。在生产过程中为了片</div>
+                        
+                     </div>
+                </div>
+                <div class="swiper-slide slide-6">
+                    
+                          <div class="top">
+                        <div class="title-wrap bc1">
+                            <div class="title"><span> 水密码洗面奶女男补水保湿控油 深层清洁收缩毛孔祛痘印洁面乳</span></div>
+                         </div>
+                         <div class="chart-wrap">
+                             <img src="img/chart.png">
+                         </div>
+                    </div>
+                    <div class="tab-title">
+                        <ul class="coment-class"><li class="activity">全部</li><li>追评(1000)</li><li>图片</li></ul>
+                        <ul class="select-class">
+                            <li>
+                                <span  class="button-dropdown button-dropdown-action test" data-dropdown="hide"  data-buttons="dropdown">
+                                    <span class="button button-action">
+                                      全部肤质<i class="icon-triangular-down"></i>
+                                    </span>
+                                 
+                                    <ul class="button-dropdown-list is-above">
+                                      <li class="item">油性肤质</li>
+                                      <li class="item">水嫩肤质</li>
+                                      <li class="item">干燥肤质</li>
+                                    </ul>
+                                </span>
+
+                               
+                            </li>
+                            <li>
+                                <span class="button-dropdown button-dropdown-action" data-buttons="dropdown">
+                                    <span class="button button-action">
+                                      全部年龄<i class="icon-triangular-down"></i>
+                                    </span>
+                                 
+                                    <ul class="button-dropdown-list is-above">
+                                    <!--   <li><a href="#">Option Link 1</a></li>
+                                      <li><a href="#">Option Link 2</a></li>
+                                      <li class="">
+                                        <a href="#">Option Link 3</a>
+                                      </li> -->
+                                    </ul>
+                                </span>
+
+                            </li>
+
+                            <li>
+                                <span class="button-dropdown button-dropdown-action" data-buttons="dropdown">
+                                    <span class="button button-action">
+                                      默认显示<i class="icon-triangular-down"></i>
+                                    </span>
+                                 
+                                    <ul class="button-dropdown-list is-above">
+                                    <!--   <li><a href="#">Option Link 1</a></li>
+                                      <li><a href="#">Option Link 2</a></li>
+                                      <li class="">
+                                        <a href="#">Option Link 3</a>
+                                      </li> -->
+                                    </ul>
+                                </span>
+
+                            </li>
+                         
+                        </ul>
+                    </div>
+                    <div class="swiper-comment">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <ul class="list-wrap">
+                    
+                                    <li class="list">
+                                        <div class="author">初次评价： 2015.11.27</div>
+                                        <div class="content-wrap">
+                                            <div class="content">很温和，很好，非常能起泡沫，很多年前就用水密码这个牌子，感觉越做越好，非常经     典的水密码清新丝滑洁面乳，超级水润啊！而且价格实
+                                            </div>
+                                            <div class="img-wrap">
+                                                <span><img src="img/comment.png"></span><span><img src="img/comment.png"></span><span><img src="img/comment.png"></span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li class="list">
+                                        <div class="author">初次评价： 2015.11.27</div>
+                                        <div class="content-wrap">
+                                            <div class="content">很温和，很好，非常能起泡沫，很多年前就用水密码这个牌子，感觉越做越好，非常经     典的水密码清新丝滑洁面乳，超级水润啊！而且价格实
+                                            </div>
+                                            <div class="img-wrap">
+                                                <span><img src="img/comment.png"></span><span><img src="img/comment.png"></span><span><img src="img/comment.png"></span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li class="list">
+                                        <div class="author">初次评价： 2015.11.27</div>
+                                        <div class="content-wrap">
+                                            <div class="content">很温和，很好，非常能起泡沫，很多年前就用水密码这个牌子，感觉越做越好，非常经     典的水密码清新丝滑洁面乳，超级水润啊！而且价格实
+                                            </div>
+                                            <div class="img-wrap">
+                                                <span><img src="img/comment.png"></span><span><img src="img/comment.png"></span><span><img src="img/comment.png"></span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">Slide</div>
+                            <div class="swiper-slide">Slide 4</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <ul class="menu">
+            <li class="activity">产品信息</li>
+            <li>使用方法</li>
+            <li>使用窍门</li>
+            <li>好转反应</li>
+            <li>应对处理</li>
+            <li>评论</li>
+        </ul>
+    </div>
+    
+
+
+
+</body>
+
+<script src="pluging/jquery/dist/jquery.js"></script>
+<script src="pluging/layer/layer.js"></script>
+<script src="pluging/Swiper/dist/js/swiper.jquery.js"></script>
+<script src="pluging/buttons/buttons.js"></script>
+<script src="pluging/jquery_lazyload-master/jquery.lazyload.min.js"></script>
+<script src="pluging/simpleStorage/simpleStorage.min.js"></script>
+<script src="pluging/aes/aes.js"></script>
+<script src="js/basic/basic.js"></script>
+<script src="js/index.js"></script>
+<script>
+  
+
+</script>
+
+</html>
